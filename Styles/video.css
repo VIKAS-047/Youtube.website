@@ -1,0 +1,115 @@
+.box {
+ display: block;
+}
+.photo {
+  /* our aim is to resize the yt page as we resize
+  while moving the page to achieve this we are using
+  grid prop so ***not to force our image to certain
+  width and block display,rather fit it to 100 percent
+  so it occupies space provided by column grids */
+  width:100%;
+  /* width: 300px;
+  display: block; */
+}
+.Thumbnail{
+  margin-bottom: 8px;
+  position: relative;
+}
+.time-stamp{
+  background-color: black;
+  font-family: Roboto,arial;
+  font-size: 12px;
+  font-weight: 500;
+  padding:4px;
+  border-radius: 2px;
+  color: white;
+  position: absolute;
+  bottom: 8px;
+  right: 5px;
+}
+
+/* Here video-info-grid does the job of providing 50px to
+profile pic and free space to video-info(1fr) so that
+ text will be assigned itself freely so there is no need
+ of forcing text (video-info) to be some width */
+.video-info-grid{
+  /* we are using grid instead of nesting layout */
+  display: grid;
+  grid-template-columns: 50px 1fr ;
+}
+.profile{
+/* width:40px; */
+/* display: inline-block; */
+vertical-align: top;
+}
+.profile-pic{
+  width:36px;
+  border-radius:25px;
+}
+.video-info {
+/* width:200px; */
+/* display: inline-block; */
+}
+.title{
+  margin-top:0;
+  color:rgb(15,15,15);
+  font-size: 16px ;
+  font-weight: 550;
+  line-height: 20px ;
+  margin-bottom: 10px;
+}
+.heading1,.heading2{
+  font-size: 14px;
+  color:rgb(96,96,96);
+}
+.heading1{
+  margin-bottom: 4px;
+}
+/* But we are trying to resize the page so no need of 
+forcefully clustering all elements so we set them free as
+everything is free then lets capture all by creating a whole
+div class for total yt using MEGA (div class) 
+and display it as a grid instead of **cluster class */
+/* .cluster{
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 15px;
+} */
+.MEGA{
+display: grid;
+/* here we assigned each column as 1fr so this
+ is assigned for both thumbnail photo and video-info
+ so we set our photo's width as 100%(Thumbnail)
+ to fit in that 1 fr provided by MEGA similarly to 
+ video-info-grid */
+grid-template-columns:1fr 1fr 1fr ;
+column-gap: 16px;
+row-gap: 40px;
+
+}
+ /* screen follows the below
+  css props untill the screen
+ reaches a width of 600px */
+@media (max-width:750px) {
+  .MEGA{
+  grid-template-columns: 1fr 1fr;
+} 
+}
+
+@media (min-width:751px) and (max-width:999px){
+  .MEGA{
+  grid-template-columns: 1fr 1fr 1fr;
+} 
+}
+
+@media (min-width:1000px) {
+  .MEGA{
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+} 
+}
+
+.video-title-link {
+  text-decoration: none;
+  color: black;
+}
